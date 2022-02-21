@@ -19,7 +19,7 @@ public class HabilidadeUsuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private Long Id;
+	private Long id;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -30,7 +30,7 @@ public class HabilidadeUsuario {
 	private Habilidade habilidade;
 	
 	@Column(name="knowledge_level", nullable = false)
-	private Integer Nivel;
+	private Integer nivel;
 	
 	@Column(name="created_at", nullable = false)
 	private LocalDate dataCriacao;
@@ -47,20 +47,20 @@ public class HabilidadeUsuario {
 	public HabilidadeUsuario(Long id, Usuario usuario, Habilidade habilidade, Integer nivel, LocalDate dataCriacao,
 			LocalDate dataAtualizacao) {
 		super();
-		Id = id;
+		this.id = id;
 		this.usuario = usuario;
 		this.habilidade = habilidade;
-		Nivel = nivel;
+		this.nivel = nivel;
 		this.dataCriacao = dataCriacao;
 		this.dataAtualizacao = dataAtualizacao;
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public Usuario getUsuario() {
@@ -80,11 +80,11 @@ public class HabilidadeUsuario {
 	}
 
 	public Integer getNivel() {
-		return Nivel;
+		return nivel;
 	}
 
 	public void setNivel(Integer nivel) {
-		Nivel = nivel;
+		this.nivel = nivel;
 	}
 
 	public LocalDate getDataCriacao() {
@@ -102,6 +102,9 @@ public class HabilidadeUsuario {
 	public void setDataAtualizacao(LocalDate dataAtualizacao) {
 		this.dataAtualizacao = dataAtualizacao;
 	}
+
+	
+	
 	
 	
 }
