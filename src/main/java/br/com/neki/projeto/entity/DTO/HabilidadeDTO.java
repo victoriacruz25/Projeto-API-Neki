@@ -2,7 +2,7 @@ package br.com.neki.projeto.entity.DTO;
 
 public class HabilidadeDTO {
 
-	private Long id;
+	private Integer id;
 	private String nome;
 	private String versao;
 	private String descricao;
@@ -12,7 +12,7 @@ public class HabilidadeDTO {
 		super();
 	}
 
-	public HabilidadeDTO(Long id, String nome, String versao, String descricao, String imagem) {
+	public HabilidadeDTO(Integer id, String nome, String versao, String descricao, String imagem) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -21,11 +21,11 @@ public class HabilidadeDTO {
 		this.imagem = imagem;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -7,7 +7,7 @@ import br.com.neki.projeto.entity.Usuario;
 
 public class HabilidadeUsuarioDTO {
 	
-	private Long id;
+	private Integer id;
 	private Usuario usuario;
 	private Habilidade habilidade;
 	private Integer nivel;
@@ -19,7 +19,7 @@ public class HabilidadeUsuarioDTO {
 		super();
 	}
 
-	public HabilidadeUsuarioDTO(Long id, Usuario usuario, Habilidade habilidade, Integer nivel, LocalDate dataCriacao,
+	public HabilidadeUsuarioDTO(Integer id, Usuario usuario, Habilidade habilidade, Integer nivel, LocalDate dataCriacao,
 			LocalDate dataAtualizacao) {
 		super();
 		this.id = id;
@@ -30,11 +30,11 @@ public class HabilidadeUsuarioDTO {
 		this.dataAtualizacao = dataAtualizacao;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

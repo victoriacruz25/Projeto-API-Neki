@@ -14,7 +14,7 @@ public class Habilidade {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
-	private Long id;
+	private Integer id;
 	
 	@Column(name="name", nullable = false )
 	private String nome;
@@ -33,7 +33,7 @@ public class Habilidade {
 		super();
 	}
 
-	public Habilidade(Long id, String nome, String versao, String descricao, String imagem) {
+	public Habilidade(Integer id, String nome, String versao, String descricao, String imagem) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -42,11 +42,11 @@ public class Habilidade {
 		this.imagem = imagem;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

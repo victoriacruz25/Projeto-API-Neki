@@ -19,7 +19,7 @@ public class HabilidadeUsuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private Long id;
+	private Integer id;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -44,7 +44,7 @@ public class HabilidadeUsuario {
 		super();
 	}
 
-	public HabilidadeUsuario(Long id, Usuario usuario, Habilidade habilidade, Integer nivel, LocalDate dataCriacao,
+	public HabilidadeUsuario(Integer id, Usuario usuario, Habilidade habilidade, Integer nivel, LocalDate dataCriacao,
 			LocalDate dataAtualizacao) {
 		super();
 		this.id = id;
@@ -55,11 +55,11 @@ public class HabilidadeUsuario {
 		this.dataAtualizacao = dataAtualizacao;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
