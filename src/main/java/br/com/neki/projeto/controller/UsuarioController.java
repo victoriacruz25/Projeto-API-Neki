@@ -31,12 +31,12 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@GetMapping("/usuario")
+	@GetMapping("/Usuario")
 	public List<Usuario> listarUsuario(){
 		return usuarioRepository.findAll();
 	}
 	
-	@GetMapping("/usuarioPorId/{id}")
+	@GetMapping("/UsuarioPorId/{id}")
 	public ResponseEntity<Usuario> listarUsuarioUnico(@PathVariable Integer id) {
 		Optional<Usuario> usuario = Optional.ofNullable(usuarioService.findById(id));
 		if(usuario.isEmpty()) {
@@ -62,10 +62,10 @@ public class UsuarioController {
 	public void deletarUsuario(@PathVariable Integer id) {
 		usuarioService.delete(id);
 	}
-
-	/*@PostMapping("/login")
-	private Usuario login(@RequestBody Usuario usuario){
-		return usuarioService.login(usuario);
-	}*/
-
+	
+	@GetMapping("/login")
+	public Usuario Login( @RequestBody Usuario usuario) {
+		return usuarioService.login(usuario.getLogin(), usuario.getSenha());
+	}
+	
 }

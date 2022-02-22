@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.neki.projeto.entity.Usuario;
 import br.com.neki.projeto.entity.DTO.UsuarioDTO;
 import br.com.neki.projeto.repository.UsuarioRepository;
 
+@Service
 public class UsuarioService {
 	
 	@Autowired
@@ -46,6 +48,10 @@ public class UsuarioService {
 	
 	public void delete(Integer id) {
 		usuarioRepository.deleteById(id);
+	}
+	
+	public Usuario login(String login, String senha) {
+		return usuarioRepository.findByLoginAndSenha(login, senha);
 	}
 	
 
