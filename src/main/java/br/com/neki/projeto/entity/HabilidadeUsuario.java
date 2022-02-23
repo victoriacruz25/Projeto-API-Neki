@@ -8,24 +8,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name="user_skill")
+@Table(name="user_skill", schema="teste_residencia")
 public class HabilidadeUsuario {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
 	private Integer id;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="user_id")
 	private Usuario usuario;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="skill_id")
 	private Habilidade habilidade;
 	
@@ -35,7 +35,7 @@ public class HabilidadeUsuario {
 	@Column(name="created_at", nullable = false)
 	private LocalDate dataCriacao;
 	
-	@Column(name="updated_at", nullable = false)
+	@Column(name="updated_at", nullable = true)
 	private LocalDate dataAtualizacao;
 	
 	
@@ -43,6 +43,15 @@ public class HabilidadeUsuario {
 	public HabilidadeUsuario() {
 		super();
 	}
+	
+	
+
+	public HabilidadeUsuario(Integer id) {
+		super();
+		this.id = id;
+	}
+
+
 
 	public HabilidadeUsuario(Integer id, Usuario usuario, Habilidade habilidade, Integer nivel, LocalDate dataCriacao,
 			LocalDate dataAtualizacao) {

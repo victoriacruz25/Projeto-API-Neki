@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="users")
+@Table(name="user", schema="teste_residencia")
 public class Usuario {
 
 	@Id
@@ -31,6 +31,15 @@ public class Usuario {
 	public Usuario() {
 		super();
 	}
+	
+	
+
+	public Usuario(Integer id) {
+		super();
+		this.id = id;
+	}
+
+
 
 	public Usuario(Integer id, String login, String senha, LocalDate ultimoLoginData) {
 		super();

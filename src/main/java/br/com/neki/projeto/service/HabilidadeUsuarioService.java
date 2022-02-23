@@ -52,5 +52,10 @@ public class HabilidadeUsuarioService {
 	public void delete(Integer id) {
 		habilidadeUsuarioRepository.deleteById(id);
 	}
+	
+	public List<HabilidadeUsuario> findByUsuario(Integer id) {
+		List<HabilidadeUsuario> entity = habilidadeUsuarioRepository.findByUsuario(id);
+		return entity;
+	}
 
 }

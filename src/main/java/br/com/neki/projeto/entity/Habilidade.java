@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="skill")
+@Table(name="skill", schema="teste_residencia")
 public class Habilidade {
 	
 	@Id
@@ -32,6 +32,14 @@ public class Habilidade {
 	public Habilidade() {
 		super();
 	}
+	
+	
+
+	public Habilidade(Integer id) {
+		super();
+		this.id = id;
+	}
+
 
 	public Habilidade(Integer id, String nome, String versao, String descricao, String imagem) {
 		super();

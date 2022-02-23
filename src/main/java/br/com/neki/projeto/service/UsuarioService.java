@@ -50,9 +50,17 @@ public class UsuarioService {
 		usuarioRepository.deleteById(id);
 	}
 	
-	public Usuario login(String login, String senha) {
-		return usuarioRepository.findByLoginAndSenha(login, senha);
+	public UsuarioDTO login(String login, String senha) {
+		Usuario usuario = usuarioRepository.findByLoginAndSenha(login, senha);
+		UsuarioDTO usuarioDTO = new UsuarioDTO();
+		usuarioDTO.setLogin(usuario.getLogin());
+		usuarioDTO.setId(usuario.getId());
+		usuarioDTO.setUltimoLoginData(usuario.getUltimoLoginData());
+		return usuarioDTO;
+		
 	}
+	
+	
 	
 
 }

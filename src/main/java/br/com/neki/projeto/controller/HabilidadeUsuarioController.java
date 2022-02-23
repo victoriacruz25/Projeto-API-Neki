@@ -62,5 +62,12 @@ public class HabilidadeUsuarioController {
 	public void deletarHabilidadeUsuario(@PathVariable Integer id) {
 		habilidadeUsuarioService.delete(id);
 	}
+	
+	@GetMapping("/habilidadePorIdUsuario")
+	public List<HabilidadeUsuario> habilidadePorIdUsuario(@PathVariable Integer id) {
+		return habilidadeUsuarioService.findByUsuario(id);
+	}
+		
+	
 
 }

@@ -63,8 +63,8 @@ public class UsuarioController {
 		usuarioService.delete(id);
 	}
 	
-	@GetMapping("/login")
-	public Usuario Login( @RequestBody Usuario usuario) {
+	@PostMapping("/login")
+	public UsuarioDTO Login( @RequestBody Usuario usuario) {
 		return usuarioService.login(usuario.getLogin(), usuario.getSenha());
 	}
 	
