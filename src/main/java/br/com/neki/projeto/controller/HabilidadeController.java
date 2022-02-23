@@ -20,6 +20,9 @@ import br.com.neki.projeto.entity.Habilidade;
 import br.com.neki.projeto.entity.DTO.HabilidadeDTO;
 import br.com.neki.projeto.repository.HabilidadeRepository;
 import br.com.neki.projeto.service.HabilidadeService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping ("/api")
@@ -32,11 +35,27 @@ public class HabilidadeController {
 	private HabilidadeService habilidadeService;
 	
 	@GetMapping("/habilidade")
+	@ApiOperation(value = "Listar Habilidades ", notes = "Listar Habilidades")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Habilidades listadas com sucesso"),
+			@ApiResponse(code = 401, message = "Erro de autenticação"),
+			@ApiResponse(code = 403, message = "Você não tem permissão para acessar o recurso"),
+			@ApiResponse(code = 404, message = "Recurso Indisponivel"),
+			@ApiResponse(code = 500, message = "Erros interno do servidor"),
+			@ApiResponse(code = 505, message = "Ocorreu uma exceção") })
+	
 	public List<Habilidade> listarHabilidade(){
 		return habilidadeRepository.findAll();
 	}
 	
 	@GetMapping("/habilidadePorId/{id}")
+	@ApiOperation(value = "Buscar habilidade por ID", notes = "Buscar habilidade por ID")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Habilidade encontrada com sucesso"),
+			@ApiResponse(code = 401, message = "Erro de autenticação"),
+			@ApiResponse(code = 403, message = "Você não tem permissão para acessar o recurso"),
+			@ApiResponse(code = 404, message = "Recurso Indisponivel"),
+			@ApiResponse(code = 500, message = "Erros interno do servidor"),
+			@ApiResponse(code = 505, message = "Ocorreu uma exceção") })
+	
 	public ResponseEntity<Habilidade> listarHabilidadeUnica(@PathVariable Integer id) {
 		Optional<Habilidade> habilidade = Optional.ofNullable(habilidadeService.findById(id));
 		if(habilidade.isEmpty()) {
@@ -47,18 +66,42 @@ public class HabilidadeController {
 	}
 	
 	@PostMapping("/cadastrarHabilidade")
+	@ApiOperation(value = "Cadastrar habilidade", notes = "Cadastrar habilidade")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Habilidade inserida com sucesso"),
+			@ApiResponse(code = 401, message = "Erro de autenticação"),
+			@ApiResponse(code = 403, message = "Você não tem permissão para acessar o recurso"),
+			@ApiResponse(code = 404, message = "Recurso Indisponivel"),
+			@ApiResponse(code = 500, message = "Erros interno do servidor"),
+			@ApiResponse(code = 505, message = "Ocorreu uma exceção") })
+	
 	@ResponseStatus(HttpStatus.CREATED)
 	public Habilidade cadastrarHabilidade(@RequestBody HabilidadeDTO dto) {
 		return habilidadeService.save(dto);
 	}
 	
 	@PutMapping("/atualizarHabilidade/{id}")
+	@ApiOperation(value = "Atualizar habilidade por ID", notes = "Atualizar habilidade por ID")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Habilidade atualizada com sucesso"),
+			@ApiResponse(code = 401, message = "Erro de autenticação"),
+			@ApiResponse(code = 403, message = "Você não tem permissão para acessar o recurso"),
+			@ApiResponse(code = 404, message = "Recurso Indisponivel"),
+			@ApiResponse(code = 500, message = "Erros interno do servidor"),
+			@ApiResponse(code = 505, message = "Ocorreu uma exceção") })
+	
 	public Habilidade atualizarHabilidade(@RequestBody HabilidadeDTO dto, @PathVariable Integer id) {
 		Habilidade habilidade = habilidadeService.findById(id);
 		return habilidadeService.update(habilidade, dto);
 	}
 	
 	@DeleteMapping("deletarHabilidade/{id}")
+	@ApiOperation(value = "Excluir habilidade por ID", notes = "Excluir habilidade por ID")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Habilidade excluída com sucesso"),
+			@ApiResponse(code = 401, message = "Erro de autenticação"),
+			@ApiResponse(code = 403, message = "Você não tem permissão para acessar o recurso"),
+			@ApiResponse(code = 404, message = "Recurso Indisponivel"),
+			@ApiResponse(code = 500, message = "Erros interno do servidor"),
+			@ApiResponse(code = 505, message = "Ocorreu uma exceção") })
+	
 	public void deletarHabilidade(@PathVariable Integer id) {
 		habilidadeService.delete(id);
 	}
