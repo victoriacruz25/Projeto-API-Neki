@@ -1,5 +1,6 @@
 package br.com.neki.projeto.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,12 +22,13 @@ public class HabilidadeUsuarioService {
 	}
 	
 	public HabilidadeUsuario save(HabilidadeUsuarioDTO dto) {
+		LocalDate localDate = LocalDate.now();
 		HabilidadeUsuario habilidadeUsu = new HabilidadeUsuario();
 		habilidadeUsu.setUsuario(dto.getUsuario());
 		habilidadeUsu.setHabilidade(dto.getHabilidade());
 		habilidadeUsu.setNivel(dto.getNivel());
-		habilidadeUsu.setDataCriacao(dto.getDataCriacao());
-		habilidadeUsu.setDataAtualizacao(dto.getDataAtualizacao());
+		habilidadeUsu.setDataCriacao(localDate);
+		habilidadeUsu.setDataAtualizacao(localDate);
 		return habilidadeUsuarioRepository.save(habilidadeUsu);
 	}
 	
@@ -54,7 +56,7 @@ public class HabilidadeUsuarioService {
 	}
 	
 	public List<HabilidadeUsuario> findByUsuario(Integer id) {
-		List<HabilidadeUsuario> entity = habilidadeUsuarioRepository.findByUsuario(id);
+		List<HabilidadeUsuario> entity = habilidadeUsuarioRepository.findByUsuarioId(id);
 		return entity;
 	}
 

@@ -8,5 +8,5 @@ import br.com.neki.projeto.entity.HabilidadeUsuario;
 
 public interface HabilidadeUsuarioRepository extends JpaRepository<HabilidadeUsuario, Integer> {
 		
-	List<HabilidadeUsuario> findByUsuario(Integer id);
+	List<HabilidadeUsuario> findByUsuarioId(Integer id);
 }

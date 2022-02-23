@@ -26,20 +26,16 @@ public class Usuario {
 	
 	@Column(name="last_login_date")
 	private LocalDate ultimoLoginData;
-
+	
 	
 	public Usuario() {
 		super();
 	}
-	
-	
 
 	public Usuario(Integer id) {
 		super();
 		this.id = id;
 	}
-
-
 
 	public Usuario(Integer id, String login, String senha, LocalDate ultimoLoginData) {
 		super();

@@ -106,7 +106,7 @@ public class HabilidadeUsuarioController {
 		habilidadeUsuarioService.delete(id);
 	}
 	
-	@GetMapping("/habilidadePorIdUsuario")
+	@GetMapping("/habilidadePorIdUsuario/{id}")
 	public List<HabilidadeUsuario> habilidadePorIdUsuario(@PathVariable Integer id) {
 		return habilidadeUsuarioService.findByUsuario(id);
 	}

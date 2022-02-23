@@ -32,10 +32,10 @@ public class HabilidadeUsuario {
 	@Column(name="knowledge_level", nullable = false)
 	private Integer nivel;
 	
-	@Column(name="created_at", nullable = false)
+	@Column(name="created_at")
 	private LocalDate dataCriacao;
 	
-	@Column(name="updated_at", nullable = true)
+	@Column(name="updated_at")
 	private LocalDate dataAtualizacao;
 	
 	
